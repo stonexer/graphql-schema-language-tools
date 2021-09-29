@@ -1,0 +1,35 @@
+{
+  "name": "graphql-schema-language-service",
+  "version": "1.0.0",
+  "description": "language service for graphql schema",
+  "keywords": [
+    "GraphQL",
+    "Schema"
+  ],
+  "author": "SToneX <shitianxin@gmail.com>",
+  "homepage": "https://github.com/stonexer/graphql-schema-language-tools#readme",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonexer/graphql-schema-language-tools.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/stonexer/graphql-schema-language-tools/issues"
+  },
+  "dependencies": {
+    "chevrotain": "^9.0.2",
+    "graphql": "^15.5.3",
+    "xregexp": "^5.1.0"
+  }
+}

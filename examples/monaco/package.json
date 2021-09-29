@@ -1,0 +1,14 @@
+{
+  "name": "monaco-graphql-schema-example",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "vite": "^2.5.4"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.28.1"
+  }
+}

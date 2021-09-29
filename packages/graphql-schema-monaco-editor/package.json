@@ -1,0 +1,34 @@
+{
+  "name": "graphql-schema-monaco-editor",
+  "version": "1.0.0",
+  "description": "Monaco editor for graphql schema",
+  "keywords": [
+    "GraphQL",
+    "Schema"
+  ],
+  "author": "SToneX <shitianxin@gmail.com>",
+  "homepage": "https://github.com/stonexer/graphql-schema-language-tools#readme",
+  "license": "MIT",
+  "main": "lib/graphql-schema-monaco-editor.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonexer/graphql-schema-language-tools.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/stonexer/graphql-schema-language-tools/issues"
+  },
+  "dependencies": {
+    "graphql": "^15.6.0",
+    "graphql-schema-language-service": "^1.0.0",
+    "monaco-editor": "^0.28.1"
+  }
+}
