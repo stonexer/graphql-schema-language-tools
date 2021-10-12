@@ -1,4 +1,4 @@
-import type { worker, editor, Position, IRange } from 'monaco-editor';
+import type { worker } from 'monaco-editor';
 
 export interface ICreateData {
   languageId: string;
@@ -14,6 +14,8 @@ export class GraphQLSchemaWorker {
   }
 
   async doComplete() {
+    console.log('do complete', this._ctx, this._languageId);
+
     return [];
   }
 }
