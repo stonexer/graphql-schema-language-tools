@@ -5,7 +5,7 @@ import { GraphQLSchemaWorker } from './graphqlSchemaWorker';
 
 self.onmessage = () => {
   // ignore the first message
-  worker.initialize((ctx: any, createData: any) => {
-    return new GraphQLSchemaWorker(ctx, createData);
+  worker.initialize((ctx: any) => {
+    return new GraphQLSchemaWorker(ctx);
   });
 };

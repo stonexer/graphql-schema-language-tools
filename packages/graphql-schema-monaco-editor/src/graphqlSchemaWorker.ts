@@ -8,9 +8,9 @@ export class GraphQLSchemaWorker {
   private _ctx: worker.IWorkerContext;
   private _languageId: string;
 
-  constructor(ctx: worker.IWorkerContext, createData: ICreateData) {
+  constructor(ctx: worker.IWorkerContext) {
     this._ctx = ctx;
-    this._languageId = createData.languageId;
+    this._languageId = 'graphql-schema';
   }
 
   async doComplete() {

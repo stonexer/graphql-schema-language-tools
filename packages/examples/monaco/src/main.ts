@@ -8,7 +8,7 @@ import 'graphql-schema-monaco-editor/lib/monaco.contribution';
 
 (self as any).MonacoEnvironment = {
   getWorker(_workerId: string, label: string) {
-    if (label === 'graphqlDev') {
+    if (label === 'graphql-schema') {
       return new GraphQLWorker();
     }
     return new EditorWorker();
