@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
+    "target": "ES2018",
+    "moduleResolution": "node",
     "strict": true,
-    "sourceMap": true,
-    "esModuleInterop": true,
-    "noEmit": true,
+    "declaration": true,
+    "noImplicitOverride": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": false
   }
 }

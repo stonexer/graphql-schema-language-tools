@@ -9,13 +9,14 @@
   "author": "SToneX <shitianxin@gmail.com>",
   "homepage": "https://github.com/stonexer/graphql-schema-language-tools#readme",
   "license": "MIT",
-  "main": "lib/index.js",
   "directories": {
     "lib": "lib"
   },
   "files": [
     "lib"
   ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stonexer/graphql-schema-language-tools.git"
@@ -34,7 +35,8 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
-    "ts-node": "^10.2.1"
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   },
   "ava": {
     "extensions": {

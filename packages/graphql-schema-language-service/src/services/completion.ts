@@ -1,6 +1,8 @@
 import * as monaco from 'monaco-editor';
 import { specifiedScalarTypes } from 'graphql';
 
+import { getGraphQLPositionByOffset } from '../index';
+
 export class CompletionAdapter
   implements monaco.languages.CompletionItemProvider
 {

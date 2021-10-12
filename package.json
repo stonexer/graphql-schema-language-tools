@@ -1,8 +1,9 @@
 {
-  "name": "root",
+  "name": "graphql-schema-launguage-tools",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "packages/examples/*"
   ],
   "devDependencies": {
     "lerna": "^4.0.0",

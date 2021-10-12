@@ -21,6 +21,7 @@
     "url": "git+https://github.com/stonexer/graphql-schema-language-tools.git"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -30,5 +31,8 @@
     "graphql": "^15.6.0",
     "graphql-schema-language-service": "^1.0.0",
     "monaco-editor": "^0.28.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.3"
   }
 }
