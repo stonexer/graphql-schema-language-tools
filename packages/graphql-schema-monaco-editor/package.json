@@ -22,6 +22,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {
@@ -30,7 +31,8 @@
   "dependencies": {
     "graphql": "^15.6.0",
     "graphql-schema-language-service": "^1.0.0",
-    "monaco-editor": "^0.28.1"
+    "monaco-editor": "^0.28.1",
+    "vscode-languageserver-textdocument": "^1.0.2"
   },
   "devDependencies": {
     "typescript": "^4.4.3"
