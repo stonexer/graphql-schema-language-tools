@@ -29,6 +29,8 @@ export function initMonaco(value: string) {
   });
 }
 
-initMonaco(`type Query {
-  hello: String
-}`);
+initMonaco(`"Haha"
+type Book {
+  name: String
+}
+`);
