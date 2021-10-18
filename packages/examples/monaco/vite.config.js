@@ -2,8 +2,9 @@
  * @type {import('vite').UserConfig}
  */
 const config = {
+  base: '/graphql-schema-language-tools',
   build: {
-    outDir: 'page',
+    outDir: '../../../docs',
   },
 };
 
