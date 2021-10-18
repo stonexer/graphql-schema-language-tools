@@ -36,6 +36,7 @@ export const GRAPHQL_TOKENS = [
   T.Union,
   T.Input,
   T.Type,
+  T.Enum,
   // T.EnumValue,
   T.Identifier,
 

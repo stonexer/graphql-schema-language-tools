@@ -20,7 +20,7 @@ export class CompletionAdapter
       startLineNumber: 1,
       startColumn: 1,
       endLineNumber: position.lineNumber,
-      endColumn: position.column
+      endColumn: position.column,
     });
     const offset = textUntilPosition.length;
 
@@ -34,14 +34,14 @@ export class CompletionAdapter
             kind: 2,
             insertText: typeItem.value,
             detail: typeItem.description,
-            documentation: typeItem.Description
+            documentation: typeItem.Description,
           })),
           ...specifiedScalarTypes.map((scalarItem) => ({
             label: scalarItem.name,
             kind: 3,
-            insertText: scalarItem.name
-          }))
-        ]
+            insertText: scalarItem.name,
+          })),
+        ],
       };
 
       return completion as any;

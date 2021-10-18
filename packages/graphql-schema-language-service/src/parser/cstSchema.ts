@@ -44,6 +44,17 @@ export class CstSchemaVisitor extends BaseGraphQLVisitor {
     }
   }
 
+  EnumTypeDefinition(ctx: any) {
+    if (ctx.Name) {
+      this.enumTypes.push({
+        value: ctx.Name[0].image,
+        description: ctx.Description
+          ? ctx.Description[0].children.StringValue[0].image.replace(/"/g, '')
+          : null,
+      });
+    }
+  }
+
   ScalarTypeDefinition(ctx: any) {
     if (ctx.Name) {
       this.scalarTypes.push({

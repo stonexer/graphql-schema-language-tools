@@ -5,6 +5,8 @@ export class CompletionAdapter
 {
   private _worker: any;
 
+  triggerCharacters = [' '];
+
   constructor(_worker: any) {
     this._worker = _worker;
   }

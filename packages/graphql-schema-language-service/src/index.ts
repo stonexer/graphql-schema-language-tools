@@ -31,6 +31,6 @@ export function getGraphQLPositionByOffset(value: string, offset: number) {
 
   return {
     position: contextVisitor.result,
-    schema: schemaVisitor
+    schema: schemaVisitor,
   };
 }

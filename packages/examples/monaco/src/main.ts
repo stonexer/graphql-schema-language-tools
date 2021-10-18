@@ -33,8 +33,18 @@ initMonaco(`# Example
 "Scalar JSON"
 scalar JSON
 
+"Enum SaleType"
+enum SaleType {
+  DIGITAL
+}
+
 "Input Book"
 input BookInput {
+  name: String
+}
+
+"Interface Book"
+interface IBook {
   name: String
 }
 
@@ -44,6 +54,8 @@ type Book {
 }
 
 type ExampleType {
+  # Type a space or press ctrl+space after ':'
+  # to trigger the completion.
   book:
 }
 
