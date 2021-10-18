@@ -12,7 +12,7 @@ import 'graphql-schema-monaco-editor/lib/monaco.contribution';
       return new GraphQLWorker();
     }
     return new EditorWorker();
-  }
+  },
 };
 
 export function initMonaco(value: string) {
@@ -25,12 +25,29 @@ export function initMonaco(value: string) {
     formatOnType: true,
     theme: 'vs-dark',
     fontSize: 16,
-    value
+    value,
   });
 }
 
-initMonaco(`"Haha"
+initMonaco(`# Example
+"Scalar JSON"
+scalar JSON
+
+"Input Book"
+input BookInput {
+  name: String
+}
+
+"Type Book"
 type Book {
   name: String
+}
+
+type ExampleType {
+  book:
+}
+
+input ExampleInput {
+  book:
 }
 `);

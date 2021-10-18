@@ -18,20 +18,28 @@ export class PositionContextVisitor extends BaseGraphQLVisitor {
   ObjectTypeDefinition(ctx: any) {
     if (ctx.Name) {
       this.visit(ctx.FieldsDefinition, {
-        TypeDefinition: 'TypeSystemDefinition'
+        TypeDefinition: 'ObjectTypeDefinition',
       });
     }
   }
 
-  FieldsDefinition(ctx: any) {
+  InputObjectTypeDefinition(ctx: any) {
+    if (ctx.Name) {
+      this.visit(ctx.FieldsDefinition, {
+        TypeDefinition: 'InputObjectTypeDefinition',
+      });
+    }
+  }
+
+  FieldsDefinition(ctx: any, extra: any) {
     if (ctx.FieldDefinition) {
       ctx.FieldDefinition.map((item: any) => {
-        this.visit(item);
+        this.visit(item, extra);
       });
     }
   }
 
-  FieldDefinition(ctx: any) {
+  FieldDefinition(ctx: any, extra: any) {
     if (ctx.Colon) {
       if (
         ctx.TypeRule == null ||
@@ -39,15 +47,18 @@ export class PositionContextVisitor extends BaseGraphQLVisitor {
         ctx.TypeRule[0].recoveredNode
       ) {
         if (this.targetOffset > ctx.Colon[0].endOffset) {
-          this.result = 'NamedType';
+          this.result =
+            extra.TypeDefinition === 'ObjectTypeDefinition'
+              ? 'ObjectNamedType'
+              : 'InputObjectNamedType';
         }
       } else {
-        this.visit(ctx.TypeRule);
+        this.visit(ctx.TypeRule, extra);
       }
     }
   }
 
-  NamedType(ctx: any) {
+  NamedType(ctx: any, extra: any) {
     if (ctx.Name) {
       const valueTok = ctx.Name[0];
 
@@ -55,7 +66,10 @@ export class PositionContextVisitor extends BaseGraphQLVisitor {
         valueTok.startOffset <= this.targetOffset &&
         valueTok.endOffset + 1 >= this.targetOffset
       ) {
-        this.result = 'NamedType';
+        this.result =
+          extra.TypeDefinition === 'ObjectTypeDefinition'
+            ? 'ObjectNamedType'
+            : 'InputObjectNamedType';
       }
     }
   }

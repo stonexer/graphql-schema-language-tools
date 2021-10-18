@@ -19,20 +19,38 @@ export class GraphQLSchemaWorker {
     const document = this._getTextDocument(uri);
     const offset = document.offsetAt({
       line: position.lineNumber,
-      character: position.column
+      character: position.column,
     });
     const value = document.getText();
     const visitorResult = getGraphQLPositionByOffset(value, offset);
 
-    if (visitorResult.position === 'NamedType') {
+    if (visitorResult.position === 'ObjectNamedType') {
       const completion = [
-        ...visitorResult.schema.objectTypes.map((typeItem) => ({
+        ...[
+          ...visitorResult.schema.objectTypes,
+          ...visitorResult.schema.scalarTypes,
+        ].map((typeItem) => ({
           label: typeItem.value,
           kind: 2,
           insertText: typeItem.value,
           detail: typeItem.description,
-          documentation: typeItem.Description
-        }))
+          documentation: typeItem.Description,
+        })),
+      ];
+
+      return completion as any;
+    } else if (visitorResult.position === 'InputObjectNamedType') {
+      const completion = [
+        ...[
+          ...visitorResult.schema.inputObjectTypes,
+          ...visitorResult.schema.scalarTypes,
+        ].map((typeItem) => ({
+          label: typeItem.value,
+          kind: 2,
+          insertText: typeItem.value,
+          detail: typeItem.description,
+          documentation: typeItem.Description,
+        })),
       ];
 
       return completion as any;

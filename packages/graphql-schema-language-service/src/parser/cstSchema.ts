@@ -4,6 +4,9 @@ const BaseGraphQLVisitor = parser.getBaseCstVisitorConstructorWithDefaults();
 
 export class CstSchemaVisitor extends BaseGraphQLVisitor {
   objectTypes: any[] = [];
+  inputObjectTypes: any[] = [];
+  enumTypes: any[] = [];
+  scalarTypes: any[] = [];
 
   constructor() {
     super();
@@ -25,7 +28,29 @@ export class CstSchemaVisitor extends BaseGraphQLVisitor {
         value: ctx.Name[0].image,
         description: ctx.Description
           ? ctx.Description[0].children.StringValue[0].image.replace(/"/g, '')
-          : null
+          : null,
+      });
+    }
+  }
+
+  InputObjectTypeDefinition(ctx: any) {
+    if (ctx.Name) {
+      this.inputObjectTypes.push({
+        value: ctx.Name[0].image,
+        description: ctx.Description
+          ? ctx.Description[0].children.StringValue[0].image.replace(/"/g, '')
+          : null,
+      });
+    }
+  }
+
+  ScalarTypeDefinition(ctx: any) {
+    if (ctx.Name) {
+      this.scalarTypes.push({
+        value: ctx.Name[0].image,
+        description: ctx.Description
+          ? ctx.Description[0].children.StringValue[0].image.replace(/"/g, '')
+          : null,
       });
     }
   }

@@ -6,25 +6,25 @@ import { createToken, Lexer } from 'chevrotain';
 export const WhiteSpace = createToken({
   name: 'WhiteSpace',
   pattern: /[ \t]+/,
-  group: Lexer.SKIPPED
+  group: Lexer.SKIPPED,
 });
 
 export const LineTerminator = createToken({
   name: 'LineTerminator',
   pattern: /\r\n|\r|\n/,
-  group: Lexer.SKIPPED
+  group: Lexer.SKIPPED,
 });
 
 export const Comment = createToken({
   name: 'Comment',
   pattern: /#[^\n\r]*/,
-  group: Lexer.SKIPPED
+  group: Lexer.SKIPPED,
 });
 
 export const Comma = createToken({
   name: 'Comma',
   pattern: ',',
-  group: Lexer.SKIPPED
+  group: Lexer.SKIPPED,
 });
 
 // B.3 Lexical Tokens -- https://spec.graphql.org/draft/#sec-Appendix-Grammar-Summary.Lexical-Tokens
@@ -36,161 +36,167 @@ export const Comma = createToken({
 
 export const Exclamation = createToken({
   name: 'Exclamation',
-  pattern: '!'
+  pattern: '!',
 });
 
 export const Dollar = createToken({
   name: 'Dollar',
-  pattern: '$'
+  pattern: '$',
 });
 
 export const Ampersand = createToken({
   name: 'Ampersand',
-  pattern: '&'
+  pattern: '&',
 });
 
 export const LeftParenthesis = createToken({
   name: 'LeftParenthesis',
-  pattern: '('
+  pattern: '(',
 });
 
 export const RightParenthesis = createToken({
   name: 'RightParenthesis',
-  pattern: ')'
+  pattern: ')',
 });
 
 export const DotDotDot = createToken({
   name: 'DotDotDot',
-  pattern: '...'
+  pattern: '...',
 });
 
 export const Colon = createToken({
   name: 'Colon',
-  pattern: ':'
+  pattern: ':',
 });
 
 export const Equals = createToken({
   name: 'Equals',
-  pattern: '='
+  pattern: '=',
 });
 
 export const At = createToken({
   name: 'At',
-  pattern: '@'
+  pattern: '@',
 });
 
 export const LeftSquareBracket = createToken({
   name: 'LeftSquareBracket',
-  pattern: '['
+  pattern: '[',
 });
 
 export const RightSquareBracket = createToken({
   name: 'RightSquareBracket',
-  pattern: ']'
+  pattern: ']',
 });
 
 export const LeftCurlyBrace = createToken({
   name: 'LeftCurlyBrace',
-  pattern: '{'
+  pattern: '{',
 });
 
 export const Pipe = createToken({
   name: 'Pipe',
-  pattern: '|'
+  pattern: '|',
 });
 
 export const RightCurlyBrace = createToken({
   name: 'RightCurlyBrace',
-  pattern: '}'
+  pattern: '}',
 });
 
 export const Name = createToken({
   name: 'Name',
-  pattern: Lexer.NA
+  pattern: Lexer.NA,
 });
 
 export const Keyword = createToken({
   name: 'Keyword',
   pattern: Lexer.NA,
-  categories: [Name]
+  categories: [Name],
 });
 
 export const Query = createToken({
   name: 'Query',
   pattern: 'query',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Mutation = createToken({
   name: 'Mutation',
   pattern: 'mutation',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Subscription = createToken({
   name: 'Subscription',
   pattern: 'subscription',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const True = createToken({
   name: 'True',
   pattern: 'true',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const False = createToken({
   name: 'False',
   pattern: 'false',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Null = createToken({
   name: 'Null',
   pattern: 'null',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Extend = createToken({
   name: 'Extend',
   pattern: 'extend',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Scalar = createToken({
   name: 'Scalar',
   pattern: 'scalar',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Implements = createToken({
   name: 'Implements',
   pattern: 'implements',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Interface = createToken({
   name: 'Interface',
   pattern: 'interface',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Union = createToken({
   name: 'Union',
   pattern: 'union',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Input = createToken({
   name: 'Input',
   pattern: 'input',
-  categories: [Keyword]
+  categories: [Keyword],
 });
 
 export const Type = createToken({
   name: 'Type',
   pattern: 'type',
-  categories: [Keyword]
+  categories: [Keyword],
+});
+
+export const Enum = createToken({
+  name: 'Enum',
+  pattern: 'enum',
+  categories: [Keyword],
 });
 
 // export const EnumValue = createToken({
@@ -201,7 +207,7 @@ export const Type = createToken({
 export const Identifier = createToken({
   name: 'Identifier',
   pattern: /[_A-Za-z][_0-9A-Za-z]*/,
-  categories: [Name]
+  categories: [Name],
 });
 
 export const StringValue = createToken({
@@ -214,9 +220,9 @@ export const StringValue = createToken({
         '(?:[^\\\\"\\n\\r]|\\\\(?:{{EscapedUnicode}}|u{{EscapedCharacter}}))',
         {
           EscapedCharacter: XRegExp.build('[\\\\/"bfnrt]', {}),
-          EscapedUnicode: XRegExp.build('[0-9a-fA-F]{4}', {})
+          EscapedUnicode: XRegExp.build('[0-9a-fA-F]{4}', {}),
         }
-      )
+      ),
     }
-  )
+  ),
 });

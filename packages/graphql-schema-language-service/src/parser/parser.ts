@@ -18,20 +18,94 @@ export class GraphQLParser extends CstParser {
     });
 
     $.RULE('Definition', () => {
-      $.OR([{ ALT: () => $.SUBRULE($$.TypeSystemDefinition) }]);
+      $.OR([
+        { ALT: () => $.SUBRULE($$.TypeSystemDefinition) },
+        // TODO
+      ]);
     });
 
     $.RULE('TypeSystemDefinition', () => {
-      $.OR([{ ALT: () => $.SUBRULE($$.TypeDefinition) }]);
+      $.OR([
+        { ALT: () => $.SUBRULE($$.TypeDefinition) },
+        // TODO:
+      ]);
     });
 
     $.RULE('TypeDefinition', () => {
-      $.OR([{ ALT: () => $.SUBRULE($$.ObjectTypeDefinition) }]);
+      $.OR([
+        { ALT: () => $.SUBRULE($$.ScalarTypeDefinition) },
+        { ALT: () => $.SUBRULE($$.InterfaceTypeDefinition) },
+        { ALT: () => $.SUBRULE($$.EnumTypeDefinition) },
+        { ALT: () => $.SUBRULE($$.ObjectTypeDefinition) },
+        { ALT: () => $.SUBRULE($$.InputObjectTypeDefinition) },
+      ]);
     });
+
+    $.RULE('ScalarTypeDefinition', () => {
+      $.OPTION(() => $.SUBRULE($$.Description));
+
+      $.CONSUME(T.Scalar);
+      $.CONSUME(T.Name);
+    });
+
+    $.RULE('InterfaceTypeDefinition', () => {
+      $.OPTION(() => $.SUBRULE($$.Description));
+
+      $.CONSUME(T.Interface);
+      $.CONSUME(T.Name);
+      $.OPTION2(() => {
+        $.SUBRULE($$.FieldsDefinition);
+      });
+    });
+
+    // EnumType
+
+    $.RULE('EnumTypeDefinition', () => {
+      $.OPTION(() => $.SUBRULE($$.Description));
+
+      $.CONSUME(T.Enum);
+      $.CONSUME(T.Name);
+      $.OPTION2(() => {
+        $.SUBRULE($$.EnumValuesDefinition);
+      });
+    });
+
+    $.RULE('EnumValuesDefinition', () => {
+      $.CONSUME(T.LeftCurlyBrace);
+      $.AT_LEAST_ONE(() => {
+        $.SUBRULE($$.EnumValueDefinition);
+      });
+      $.CONSUME(T.RightCurlyBrace);
+    });
+
+    $.RULE('EnumValueDefinition', () => {
+      $.OPTION(() => $.SUBRULE($$.Description));
+
+      $.SUBRULE($$.EnumValue);
+    });
+
+    $.RULE('EnumValue', () => {
+      $.CONSUME(T.Name);
+    });
+
+    // ObjectType
 
     $.RULE('ObjectTypeDefinition', () => {
       $.OPTION(() => $.SUBRULE($$.Description));
+
       $.CONSUME(T.Type);
+      $.CONSUME(T.Name);
+      $.AT_LEAST_ONE(() => {
+        $.SUBRULE($$.FieldsDefinition);
+      });
+    });
+
+    // InputObjectType
+
+    $.RULE('InputObjectTypeDefinition', () => {
+      $.OPTION(() => $.SUBRULE($$.Description));
+
+      $.CONSUME(T.Input);
       $.CONSUME(T.Name);
       $.AT_LEAST_ONE(() => {
         $.SUBRULE($$.FieldsDefinition);

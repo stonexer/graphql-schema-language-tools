@@ -23,6 +23,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build:watch": "tsc --watch",
     "test": "ava"
   },
   "bugs": {
