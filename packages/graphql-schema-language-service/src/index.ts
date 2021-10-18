@@ -6,6 +6,8 @@ import { buildAst } from './parser/buildAst';
 import { PositionContextVisitor } from './parser/positionContext';
 import { CstSchemaVisitor } from './parser/cstSchema';
 
+export * from './LanguageService';
+
 export function parse(value: string): DocumentNode {
   const cstResult = parseCst(value);
 
