@@ -1,0 +1,54 @@
+{
+  "name": "graphql-schema-language-service",
+  "version": "1.0.0",
+  "description": "language service for graphql schema",
+  "keywords": [
+    "GraphQL",
+    "Schema"
+  ],
+  "author": "SToneX <shitianxin@gmail.com>",
+  "homepage": "https://github.com/stonexer/graphql-schema-language-tools#readme",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stonexer/graphql-schema-language-tools.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "test": "ava"
+  },
+  "bugs": {
+    "url": "https://github.com/stonexer/graphql-schema-language-tools/issues"
+  },
+  "dependencies": {
+    "chevrotain": "^9.0.2",
+    "graphql": "^15.5.3",
+    "xregexp": "^5.1.0"
+  },
+  "devDependencies": {
+    "ava": "^3.15.0",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "nonSemVerExperiments": {
+      "configurableModuleFormat": true
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
+    ]
+  }
+}
